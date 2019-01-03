@@ -34,9 +34,9 @@ Bridge plclogo:device:<DeviceId> [ address="<ip>", family="<0BA7/0BA8>", localTS
 | address    | String  | Yes        |           | IP address of the LOGO! PLC.                                     |
 | family     | String  | Yes        |           | LOGO! family to communicate with. Can be `0BA7` or `0BA8` now.   |
 | localTSAP  | String  | Yes        |           | TSAP (as hex) is used by the local instance. Check configuration |
-|            |         |            |           | in LOGO!Soft Comfort. Common used value is `0x3000`.             |
+|            |         |            |           | in LOGO!Soft Comfort. Common used value is `0x0300`.             |
 | remoteTSAP | String  | Yes        |           | TSAP (as hex) of the remote LOGO! PLC, as configured by          |
-|            |         |            |           | LOGO!Soft Comfort. Common used value is `0x2000`.                |
+|            |         |            |           | LOGO!Soft Comfort. Common used value is `0x0200`.                |
 | refresh    | Integer | No         | 100ms     | Polling interval, in milliseconds. Is used for query the LOGO!.  |
 
 Be sure not to use the same values for localTSAP and remoteTSAP, if configure more than one LOGO!
@@ -281,7 +281,7 @@ Configuration of one Siemens LOGO!
 logo.things:
 
 ```
-Bridge plclogo:device:Logo [ address="192.168.0.1", family="0BA8", localTSAP="0x3000", remoteTSAP="0x2000", refresh=100 ]
+Bridge plclogo:device:Logo [ address="192.168.0.1", family="0BA8", localTSAP="0x0300", remoteTSAP="0x0200", refresh=100 ]
 {
   Thing digital  Inputs  [ kind="I" ]
   Thing digital  Outputs [ kind="Q" ]
@@ -317,7 +317,7 @@ Configuration of two Siemens LOGO!
 logo.things:
 
 ```
-Bridge plclogo:device:Logo1 [ address="192.168.0.1", family="0BA8", localTSAP="0x3000", remoteTSAP="0x2000", refresh=100 ]
+Bridge plclogo:device:Logo1 [ address="192.168.0.1", family="0BA8", localTSAP="0x0300", remoteTSAP="0x0200", refresh=100 ]
 {
   Thing digital Inputs  [ kind="I" ]
   Thing digital Outputs [ kind="Q" ]
